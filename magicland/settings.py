@@ -72,19 +72,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'magicland.wsgi.application'
 
 
-# Database
+# Database  
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'magic_paper_v1',
-        # 'USER': 'root',
-        # 'PASSWORD': 'MJ7zTcy8$kzQJx5',
-        # 'HOST': 'rm-wz9fm83i33i818q0v0o.mysql.rds.aliyuncs.com',
-        # 'PORT': 3306,
-        # 'CHARSET': 'utf8',
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
