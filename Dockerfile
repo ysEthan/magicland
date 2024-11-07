@@ -2,8 +2,24 @@
 FROM python:3.11
 # 设置工作目录
 WORKDIR /app
+
+
+RUN python -m pip install --upgrade pip
+
+# 替换为国内源
+RUN mkdir -p ~/.pip \
+    && echo "[global]" > ~/.pip/pip.conf \
+    && echo "index-url=https://mirrors.aliyun.com/pypi/simple" >> ~/.pip/pip.conf \
+    && echo "trusted-host=mirrors.aliyun.com" >> ~/.pip/pip.conf
+
+
 # 将当前目录下的 requirements.txt 文件复制到容器内的工作目录
 COPY requirements.txt .
+
+
+
+
+
 # 安装依赖
 RUN pip install -r requirements.txt
 
