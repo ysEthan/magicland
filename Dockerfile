@@ -8,7 +8,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # 将当前目录下的项目代码复制到容器内的工作目录
-COPY..
+COPY . .
 
 # 设置环境变量
 ENV DJANGO_SETTINGS_MODULE=magicland.settings
