@@ -3,8 +3,6 @@ FROM python:3.11
 WORKDIR /app
 
 RUN python -m pip install --upgrade pip
-
-
 # 替换为国内源
 RUN mkdir -p ~/.pip \
     && echo "[global]" > ~/.pip/pip.conf \
@@ -16,9 +14,10 @@ RUN mkdir -p ~/.pip \
 COPY requirements.txt .
 RUN python -m pip install --no-cache-dir -r requirements.txt
 COPY . .
+# RUN python manage.py runserver 127.0.0.1:80
 
 
-
-CMD uwsgi --http=0.0.0.0:80 --module=backend.wsgi
+# RUN python manage.py collectstatic --noinput
+# CMD  python manage.py runserver 127.0.0.1:8001
 
 

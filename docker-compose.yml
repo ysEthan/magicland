@@ -4,13 +4,13 @@ services:
     build: .
     # map the internal port 80 to port 8000 on the host
     ports:
-      - "8001:80"
+      - "8001:8001"
     # map the host directory to app (which allows us to see and edit files inside the container)
     volumes:
       - ".:/app:rw"
       - "./data:/data:rw"
     # the default command to run whenever the container is launched
-    command: python manage.py runserver 0.0.0.0:80
+    command: python manage.py runserver 0.0.0.0:8001
     # the URL 'postgres' or 'mysql' will point to the application's db service
     networks:
       - djangocmsnet
